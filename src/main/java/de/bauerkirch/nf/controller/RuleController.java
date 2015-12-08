@@ -1,5 +1,6 @@
 package de.bauerkirch.nf.controller;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 import org.slf4j.Logger;
@@ -37,10 +38,10 @@ public class RuleController {
 	}
 
 	@RequestMapping(value = "get", method = RequestMethod.GET)
-	public Rule getRule(@RequestParam(value="id") long id) {
+	public Rule getRule(@RequestParam(value = "id") long id) {
 		return repository.findOne(id);
 	}
-	
+
 	@RequestMapping(value = "", method = RequestMethod.POST)
 	public Rule modifyRule(@RequestBody Rule rule) {
 		log.info(rule.toString());
@@ -51,6 +52,16 @@ public class RuleController {
 	@RequestMapping(value = "/todoCount", method = RequestMethod.GET)
 	public int getTodoCount() {
 		return repository.findByFulfilled(false).size();
+	}
+
+	@RequestMapping(value = "/search", method = RequestMethod.GET)
+	public Iterable<Rule> search(@RequestParam(value = "name") String name) {
+		log.info("Search for: " + name);
+
+		Iterable<Rule> list = repository.findByNameContaining(name);
+		log.info(list.toString());
+		
+		return list;
 	}
 
 }

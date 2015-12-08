@@ -10,4 +10,11 @@ public interface RuleRepository extends CrudRepository<Rule, Long> {
 	
 	List<Rule> findByFulfilled(boolean fulfilled);
 	
+	List<Rule> findByNameLike(String name);
+	
+	List<Rule> findByNameContaining(String name);
+	
+	List<Rule> findByNameStartingWith(String name);
+	
+	
 }

@@ -21,7 +21,7 @@ public class Rule {
 	private Date date;
 
 	private boolean fulfilled;
-
+	
 	protected Rule() {
 	};
 
