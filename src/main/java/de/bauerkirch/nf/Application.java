@@ -20,33 +20,33 @@ public class Application {
 	}
 
 	
-	@Bean
-	public CommandLineRunner demoUsers(final UserRepository repository) {
-		return (args) -> {
-
-			// fetch all customers
-			log.info("Customers found with findAll():");
-			log.info("-------------------------------");
-			for (User user : repository.findAll()) {
-				log.info(user.toString());
-			}
-            log.info("");
-
-			// fetch an individual customer by ID
-            User user = repository.findOne(1L);
-			log.info("Customer found with findOne(1L):");
-			log.info("--------------------------------");
-			log.info(user.toString());
-            log.info("");
-
-			// fetch customers by last name
-			log.info("Customer found with findByName('Jack'):");
-			log.info("--------------------------------------------");
-			for (User bauer : repository.findByName("Jack")) {
-				log.info(bauer.toString());
-			}
-            log.info("");
-		};
-	}
+//	@Bean
+//	public CommandLineRunner demoUsers(final UserRepository repository) {
+//		return (args) -> {
+//
+//			// fetch all customers
+//			log.info("Customers found with findAll():");
+//			log.info("-------------------------------");
+//			for (User user : repository.findAll()) {
+//				log.info(user.toString());
+//			}
+//            log.info("");
+//
+//			// fetch an individual customer by ID
+//            User user = repository.findOne(1L);
+//			log.info("Customer found with findOne(1L):");
+//			log.info("--------------------------------");
+//			log.info(user.toString());
+//            log.info("");
+//
+//			// fetch customers by last name
+//			log.info("Customer found with findByName('Jack'):");
+//			log.info("--------------------------------------------");
+//			for (User bauer : repository.findByName("Jack")) {
+//				log.info(bauer.toString());
+//			}
+//            log.info("");
+//		};
+//	}
 	
 }

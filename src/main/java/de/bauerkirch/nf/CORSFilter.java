@@ -15,7 +15,7 @@ import org.springframework.stereotype.Component;
 /**
  * CORSFilter to allow json calls from external resources.
  * 
- * @author Henning Pautsch <h.pautsch@bauer-kirch.de>
+ * @author Nils Frantzen <n.frantzen@bauer-kirch.de>
  *
  */
 @Component

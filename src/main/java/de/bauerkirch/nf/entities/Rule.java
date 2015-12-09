@@ -2,10 +2,13 @@ package de.bauerkirch.nf.entities;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Rule {
@@ -22,19 +25,25 @@ public class Rule {
 
 	private boolean fulfilled;
 	
+	@OneToOne(cascade=CascadeType.PERSIST)
+	@JoinColumn(name = "categoryId")
+	private Category category;
+	
 	protected Rule() {
 	};
 
-	public Rule(String name, String description, Date date) {
+	public Rule(String name, String description, Date date, Category category) {
 		super();
 		this.name = name;
 		this.description = description;
 		this.date = date;
+		this.category = category;
 	}
-
+	
 	@Override
 	public String toString() {
-		return "Rule [id=" + id + ", name=" + name + ", description=" + description + ", date=" + date + ", fulfilled=" + fulfilled + "]";
+		return "Rule [id=" + id + ", name=" + name + ", description=" + description + ", date=" + date + ", fulfilled=" + fulfilled + ", category="
+				+ category + "]";
 	}
 
 	public String getName() {
@@ -68,5 +77,13 @@ public class Rule {
 	public void setFulfilled(boolean fulfilled) {
 		this.fulfilled = fulfilled;
 	}
+	
+	public Category getCategory() {
+		return category;
+	}
 
+	public void setCategory(Category category) {
+		this.category = category;
+	}
+	
 }
