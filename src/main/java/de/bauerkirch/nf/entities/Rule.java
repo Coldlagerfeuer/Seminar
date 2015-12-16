@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
 import javax.persistence.OneToOne;
 
 @Entity
@@ -19,6 +20,7 @@ public class Rule {
 
 	private String name;
 
+	@Lob
 	private String description;
 
 	private Date date;
